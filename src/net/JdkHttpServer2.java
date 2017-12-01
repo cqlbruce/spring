@@ -56,7 +56,7 @@ public class JdkHttpServer2 {
                 pw.println("HTTP/1.1 200 OK");
                 pw.println("Content-type:text/html");
                 pw.println();
-                pw.println("<h1>访问成功！</h1>");
+                pw.println("<h1>success...</h1>");
                 
                 pw.flush();
                 socket.close();

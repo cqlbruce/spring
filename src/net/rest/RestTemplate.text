@@ -1,0 +1,20 @@
+
+1、先组装 url method(post get) http Headers
+2、create connection post 
+3、parse response responseType response content response 
+
+
+
+二者合起来， 
+Accept:text/xml； 
+Content-Type:text/html 
+即代表希望接受的数据类型是xml格式，本次请求发送的数据的数据格式是html。
+
+
+SimpleBufferingClientHttpRequest
+
+FileCopyUtils.copy(bufferedOutput, this.connection.getOutputStream()); 
+执行这句话时候很有意思，这之前server还没有接受到信息，
+当 this.connection.getOutputStream() 这部分执行时，头信息在server端可以打印，
+但执行copy方法out.write(in); out.close(); 这两步后，则body在server端也可以接收到。
+

@@ -49,10 +49,10 @@ public class AcceptHeaderRequestCallback implements RequestCallback{
 //						logger.debug("Setting request Accept header to " + allSupportedMediaTypes);
 //					}
 					// 给ClientHttpRequest 设置 Content-Type 可解析的报文格式 json text/html 
+					//这样服务端必须返回此种类型格式 否则可能解析失败。 
 					request.getHeaders().setAccept(allSupportedMediaTypes);
 				}
 			}
-			
 		}
 	}
 	

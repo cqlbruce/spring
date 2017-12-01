@@ -104,10 +104,10 @@ public class JdkHttpRequest {
 	}    
 	
 	public static void main(String[] args) {
-//		String s = JdkHttpRequest.sendGet("http://localhost:8080/Home/RequestString", "key=123&v=456");
-//		System.out.println(s);
-        String sr=JdkHttpRequest.sendPost("http://localhost:8080/Home/RequestPostString", "key=123&v=456");
-        System.out.println(sr);
+		String s = JdkHttpRequest.sendGet("http://localhost:8080/Home/RequestString", "key=123&v=456");
+		System.out.println(s);
+//        String sr=JdkHttpRequest.sendPost("http://localhost:8080/Home/RequestPostString", "key=123&v=456");
+//        System.out.println(sr);
 	}
 
 }

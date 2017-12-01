@@ -29,7 +29,9 @@ public class HttpEntityRequestCallback extends AcceptHeaderRequestCallback{
 	}
 	
 	public void doWithRequest(ClientHttpRequest httpRequest) throws IOException {
+		//设置accept type 
 		super.doWithRequest(httpRequest);
+		//
 		if(!this.requestEntity.hasBody()){
 			HttpHeaders httpHeaders = httpRequest.getHeaders();
 			HttpHeaders requestHeaders = this.requestEntity.getHeaders();
@@ -50,6 +52,7 @@ public class HttpEntityRequestCallback extends AcceptHeaderRequestCallback{
 					GenericHttpMessageConverter<Object> genericMessageConverter = (GenericHttpMessageConverter<Object>) messageConverter;
 					if (genericMessageConverter.canWrite(requestBodyType, requestBodyClass, requestContentType)) {
 						if (!requestHeaders.isEmpty()) {
+							//组装相关http 头信息
 							httpRequest.getHeaders().putAll(requestHeaders);
 						}
 						genericMessageConverter.write(requestBody, requestBodyType, requestContentType, httpRequest);
@@ -57,8 +60,10 @@ public class HttpEntityRequestCallback extends AcceptHeaderRequestCallback{
 					}
 				} else if (messageConverter.canWrite(requestBodyClass, requestContentType)) {
 					if (!requestHeaders.isEmpty()) {
+						//组装相关http 头信息
 						httpRequest.getHeaders().putAll(requestHeaders);
 					}
+					//开始往outputStream写信息并且flush
 					((HttpMessageConverter<Object>) messageConverter).write(
 							requestBody, requestContentType, httpRequest);
 					return;
