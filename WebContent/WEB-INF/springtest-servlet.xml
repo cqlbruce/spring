@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd 
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+    	
+	<!--如果这里不加此scan，则controller不能生效，index.html链接报不能找到，也就是为什么这里不能复用应用层的applicationContext.xml -->
+    <context:component-scan base-package="net"></context:component-scan>
+    
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+    p:viewClass="org.springframework.web.servlet.view.JstlView" 
+    p:prefix="/WEB-INF/view/"
+    p:suffix=".jsp"
+    />
+    
+    </beans>
